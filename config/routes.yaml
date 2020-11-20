@@ -1,0 +1,28 @@
+home:
+    path:     /
+    controller: App\Controller\DefaultController::indexAction
+
+remove_trailing_slash:
+    path: /{url}
+    controller: App\Controller\RedirectingController::removeTrailingSlashAction 
+    requirements:
+        url: ^documents.*/$
+    methods: [GET]
+
+oziolab_bibus_bundle_walk:
+    path:     /documents/{path}
+    controller: App\Controller\DefaultController::walkDirAction
+    requirements:
+        path: "^.+"
+
+oziolab_bibus_bundle_download:
+    path:     /download/{file}
+    controller: App\Controller\DefaultController::downloadFileAction
+    requirements:
+        file: "^.+"
+
+oziolab_bibus_echo_redirect:
+    path:     /redirect-echo
+    controller: App\Controller\DefaultController::redirectEchoAction
+
+

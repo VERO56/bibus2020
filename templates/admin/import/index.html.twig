@@ -1,0 +1,65 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block main %}
+	{% set errors = app.session.getFlashBag().get('error', []) %}
+	{% set success = app.session.getFlashBag().get('success', []) %}
+	{% set warnings = app.session.getFlashBag().get('warning', []) %}
+	<div class="box box-solid">
+		<div class="box-header with-border">
+			<h3 class="box-title">Import des utilisateurs (format CSV)</h3>
+		</div>
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-6">
+					<p>
+						Votre fichier doit être au format
+						<code>.csv</code>
+						et ne pas contenir de ligne d'entête.<br/>
+						Il doit être structuré de cette manière :
+					</p>
+					<ul>
+						<li>1ère colonne :
+							<strong>matricule</strong>
+						</li>
+						<li>2e colonne :
+							<strong>mot de passe</strong>
+						</li>
+						<li>3e colonne :
+							<strong>email</strong>
+						</li>
+					</ul>
+					{{ form(form) }}
+					</div>
+					<div class="col-md-6">
+						<p>Exemple :
+						</p>
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td>1234Jacques</td>
+									<td>m0tDep4Sse1</td>
+									<td>email@pour-jacques.fr</td>
+								</tr>
+								<tr>
+									<td>5678Pierre</td>
+									<td>m0tDep4Sse2</td>
+									<td>email@pour-pierre.fr</td>
+								</tr>
+								<tr>
+									<td>9101Yves</td>
+									<td>m0tDep4Sse3</td>
+									<td>email@pour-yves.fr</td>
+								</tr>
+								<tr>
+									<td>2345Claude</td>
+									<td>m0tDep4Sse4</td>
+									<td>email@pour-jacques.fr</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	{% endblock %}

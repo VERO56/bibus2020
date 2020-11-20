@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Modifier la configuration
+{% endblock %}
+
+{% block main %}
+	<h1>Modifier la configuration "{{ config.name }}"</h1>
+
+	{{ include('admin/config/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+	<div class="row">
+		<a href="{{ path('config_index') }}" class="btn btn-secondary">Retour à la liste</a>
+
+	</div>
+{% endblock %}

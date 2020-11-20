@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>
+			{% block title %}Connection
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('admin') }}
+		{% endblock %}
+
+		<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+	</head>
+	<body>
+		{% block body %}
+		<div class="container" style="margin-top: 1%;">
+			<div class="row justify-content-center">
+				<div class="col-4">
+					<div class="card">
+						<div class="login-logo">
+							<img src="{{ asset('images/bandeauPageAccueilIntranet.jpg') }}" alt="Keo BREST" height="117" width="350"/>
+							<p id="welcome-block" style="color: #b2bb1d">
+								<strong>Bienvenue</strong><br/>sur votre espace<br/><span>INTRANET</span>
+							</p>
+						</div>
+						<div class="card-body">
+							<form method="post">
+								{% if error %}
+									<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+								{% endif %}
+
+								{% if app.user %}
+									<div class="mb-3">
+										Vous êtes connecté en tant que
+										{{ app.user.username }},
+										<a href="{{ path('app_logout') }}">Se déconnecter</a>
+									</div>
+								{% endif %}
+
+								<h2 class="h3 mb-3 font-weight-normal">Identification</h2>
+								<div class="form-group">
+									<input type="text" value="{{ last_username }}" name="identifier" placeholder="Matricule" id="inputIdentifier" class="form-control" required autofocus>
+
+								</div>
+								<div class="form-group">
+
+									<input type="password" name="password" placeholder="Mot de passe" id="inputPassword" class="form-control" required>
+									<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+									<input type="checkbox" onclick="showPassword()">Afficher mon mot de passe
+								</div>
+
+								<div class="checkbox mb-3">
+									<label>
+										<input type="checkbox" name="_remember_me">
+										Se souvenir de moi
+									</label>
+								</div>
+								<a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+								<button class="btn btn-lg" style="background-color: #b2bb1d; color: white;" type="submit"> se connecter </button> </form> </div> </div> </div> </div> </div> {% endblock %} {% block javascripts %} {{ encore_entry_script_tags('admin') }} <script> function showpassword() { var x="document.getElementById("inputPassword");" if (x.type === "password") { x.type="text" ; } else { x.type="password" ; } } </script> {% endblock %} </body> </html>

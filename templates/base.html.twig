@@ -1,0 +1,85 @@
+ {% extends '@AdminLTE/layout/default-layout.html.twig' %}
+
+    {% block title %}Intranet Bibus{% endblock %}
+    {% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+
+
+
+
+{% block header %}
+    <header class="main-header">
+       
+            <a href="{{ path('home') }}" class="logo">
+               
+            </a>
+       
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            
+            <span id="text-header">INTRANET<span class="only-xs"><br/>BREST</span></span>
+            {% if app.user is not null and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        {% block navbar_user %}
+                            {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\NavbarController::userAction')) }}
+                        {% endblock %}
+                    </ul>
+                </div>
+            {% endif %}
+        </nav>
+    </header>
+{% endblock %}
+{% block sidebar_search %}{% endblock %}
+{% block sidebar_nav %}
+    {% if app.user is not null and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {% if app.user.isActive == true %}
+        {{ render(controller('KevinPapst\\AdminLTEBundle\\Controller\\SidebarController:menuAction', {'request':app.request})) }}
+    {% endif %}
+     {% endif %}
+{% endblock %}
+
+{% block page_title %}INTRANET{% endblock %}
+{% block page_subtitle %}{% endblock %}
+
+{% block page_content %}
+    {% set errors = app.session.getFlashBag().get('error', []) %}
+    {% set success = app.session.getFlashBag().get('success', []) %}
+    {% set warnings = app.session.getFlashBag().get('warning', []) %}
+
+    {% if errors|length %}
+        {% for message in errors %}
+            <div class="callout callout-danger">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% if success|length %}
+        {% for message in success %}
+            <div class="callout callout-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% if warnings|length %}
+        {% for message in warnings %}
+            <div class="callout callout-warning">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+{% block footer %}
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            Conception <a href="http://www.oziolab.fr/">Oziolab</a>
+        </div>
+        <strong>Copyright &copy; Bibus</strong> 2020
+    </footer>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+   {{ encore_entry_script_tags('app') }}
+{% endblock %}

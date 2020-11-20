@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{% endblock %}
+
+{% block page_content %}
+	{% set errors = app.session.getFlashBag().get('error', []) %}
+	{% set success = app.session.getFlashBag().get('success', []) %}
+	{% set warnings = app.session.getFlashBag().get('warning', []) %}
+	{% if app.user.isActive == true %}
+		<div class="col-sm-12 col-xs-12">
+			<div class="alert alert-danger" role="alert">
+				Bonjour à toutes et tous,<br>
+				Voici le lien pour accéder à Ty Bibus : <a href="https://ratpdevbrest.cap-collectif.com/">https://ratpdevbrest.cap-collectif.com/</a>
+				<br>
+				Vos codes de connexion sont dans vos casiers.<br>
+				Nous comptons sur vous pour répondre à l’enquête de satisfaction et d’engagement, vous avez jusqu’au 27 novembre.<br>
+				Merci à tous,<br>
+				Le comité de direction et l’équipe projet
+				<br>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="info-box clickable" id="btn-lignes">
+				{% set planLignesHref = path('oziolab_bibus_bundle_walk', {'path' : planLignesDir}) %}
+				<a class="info-box-icon" href="{{ planLignesHref }}">
+					<i class="fas fa-map-marker"></i>
+				</a>
+
+				<div class="info-box-content">
+					<a class="info-center-title" href="{{ planLignesHref }}">
+						<span>Plans de lignes</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="info-box clickable" id="btn-deviations">
+				{% set planDeviationsHref = path('oziolab_bibus_bundle_walk', {'path' : planDeviationsDir}) %}
+				<a class="info-box-icon" href="{{ planDeviationsHref }}">
+					<i class="fas fa-level-up-alt "></i>
+				</a>
+
+				<div class="info-box-content">
+					<a class="info-center-title" href="{{ planDeviationsHref }}">
+						<span>Déviations</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="info-box clickable" id="btn-navettes">
+				{% set horairesNavettesHref = path('oziolab_bibus_bundle_walk', {'path' : horairesNavettesDir}) %}
+				<a class="info-box-icon" href="{{ horairesNavettesHref }}">
+					<i class="fas fa-clock"></i>
+				</a>
+
+				<div class="info-box-content">
+					<a class="info-center-title" href="{{ horairesNavettesHref }}">
+						<span>Cartons et navettes</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+		{#<div class="col-sm-6 col-xs-12">
+						        <div class="info-box bg-green clickable">
+						            <a class="info-box-icon" href="{{ path('oziolab_bibus_contact') }}"><i class="fa fa-envelope-o"></i></a>
+						            {% spaceless %}
+						            <div class="info-box-content">
+						                <a class="info-center-title" href="{{ path('oziolab_bibus_contact') }}"><span>Contact</span></a>
+						            </div><!-- /.info-box-content -->
+						            {% endspaceless %}
+						        </div><!-- /.info-box -->
+						    </div>#}
+		<div class="col-sm-6 col-xs-12">
+			<div class="info-box clickable" id="btn-echo">
+				<a class="info-box-icon" href="{{ path('oziolab_bibus_echo_redirect') }}" target="_blank">
+					<i class="fas fa-pencil-alt"></i>
+				</a>
+
+				<div class="info-box-content">
+					<a class="info-center-title" href="{{ path('oziolab_bibus_echo_redirect') }}" target="_blank">
+						<span>ECHO<br/><small>Vos préoccupations méritent un retour</small>
+						</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div class="info-box clickable" id="btn-informations">
+				{% set informationHref = path('oziolab_bibus_bundle_walk', {'path' : informationDir}) %}
+				<a class="info-box-icon" href="{{ informationHref }}">
+					<i class="fas fa-list-alt"></i>
+				</a>
+
+				<div
+					class="info-box-content">
+					{#                <a class="info-center-title" href="{{ informationHref }}"><span>Actus</span></a>#}
+					<a class="info-center-title" href="https://monkiosque.ratpdev.com/bibus/_login/">
+						<span>Bibus Connect</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			<div
+				class="info-box clickable" id="btn-aide">
+				{#            <a class="info-box-icon" href="{{ path('oziolab_bibus_help') }}"><i class="fa fa-question-circle"></i></a>#}
+				{% set informationHref = path('oziolab_bibus_bundle_walk', {'path' : informationDir}) %}
+				<a class="info-box-icon" href="{{ informationHref }}">
+					<i class="fas fa-list-alt"></i>
+				</a>
+				{#            <a class="info-box-icon" href="https://docs.google.com/spreadsheets/d/1MXn2cCLe3r7XgbYKhA3D6ROZCRnjKxjAIVw0kmvHNY8/edit#gid=1423524341"><i class="fa fa-calendar"></i></a>#}
+
+				<div class="info-box-content">
+					{#                <a class="info-center-title" href="{{ path('oziolab_bibus_help') }}"><span>Aide</span></a>#}
+					{#               <a class="info-center-title" href="https://docs.google.com/spreadsheets/d/1MXn2cCLe3r7XgbYKhA3D6ROZCRnjKxjAIVw0kmvHNY8/edit#gid=1423524341"><span>Planning évènementiel</span></a>#}
+					{% set informationHref = path('oziolab_bibus_bundle_walk', {'path' : informationDir}) %}
+						<a class="info-center-title" href="{{ informationHref }}"> <span>Bibus ‘Com</span>
+					</a>
+				</div>
+				<!-- /.info-box-content -->
+
+			</div>
+			<!-- /.info-box -->
+		</div>
+	{% else %}
+		<div class="info-box-content">
+			Votre compte est désactivé, veuillez contacter un administrateur ...
+		</div>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ currentDir|trans }}{% endblock %}
+
+{% block page_content %}
+    {% if previousDir %}
+        <div class="pull-right">
+            <a href="{{ path('oziolab_bibus_bundle_walk', {'path' : previousDir }) }}" class="btn btn-default btn-flat"><span class="fas fa-arrow-left"></span> Précédent</a>
+        </div>
+    {% else %}
+        <div class="pull-right">
+            <a href="{{ path('home') }}" class="btn btn-default btn-flat"><span class="fas fa-arrow-left"></span> Retourner à l'accueil</a>
+        </div>
+    {% endif %}
+    <div style="clear: both; margin-bottom: 20px;"></div>
+    <div class="box">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th width="140">Action</th>
+                        <th width="40"></th>
+                        <th>Nom</th>
+                    </tr>
+                    {% for d in directories %}
+                        <tr>
+                            <td><a class="btn btn-primary btn-flat" href="{{ path('oziolab_bibus_bundle_walk', {'path' : path~'/'~d.getFilename() }) }}">Ouvrir</a></td>
+                            <td><span class="fas fa-folder-open"></span></td>
+                            <td class="filename">{{ d.getFilename()|trans }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% for f in files %}
+                        <tr>
+                            <td><a class="btn btn-primary btn-flat" target="_blank" href="{{ path('oziolab_bibus_bundle_download', {'file' : path~'/'~f.getFilename() }) }}">Télécharger <span class="fa fa-download"></span></a></td>
+                            <td><span class="fas fa-file-alt"></span></td>
+                            <td class="filename">{{ f.getFilename()|trans }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- /.box-body -->
+    </div>
+{% endblock %}

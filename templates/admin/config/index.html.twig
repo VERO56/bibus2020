@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Configuration
+{% endblock %}
+
+{% block main %}
+	<h1>Configuration</h1>
+	<p>Lien vers le formulaire ECHO</p>
+	{% for config in configs %}
+
+	{{ config.value }}
+	<a href="{{ path('config_edit', {'id': config.id}) }}"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>
+	 {% endfor %}
+{% endblock %}

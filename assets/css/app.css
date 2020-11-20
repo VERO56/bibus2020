@@ -1,0 +1,263 @@
+.info-center-title {
+    font-size: 1.8em;
+    display: block; }
+    .info-center-title span {
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline; }
+    .info-center-title:after {
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline;
+      content: '';
+      height: 80px; }
+  
+  .info-box a {
+    color: inherit; }
+  .info-box.clickable {
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+    .info-box.clickable:hover {
+      box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12); }
+  .info-box small {
+    font-size: 0.7em;
+    line-height: 17px !important;
+    display: block; }
+  @media (min-width: 768px) and (max-width: 990px) {
+    .info-box {
+      font-size: 0.75em; } }
+  
+  .filename {
+    font-size: 1.6rem;
+    line-height: 3rem !important; }
+  
+  body {
+    background: white; }
+  
+  .content-wrapper, .right-side {
+    background: white; }
+  
+  .skin-blue .main-header .navbar, .skin-blue .main-header .logo {
+    background-color: #B1BB1E; }
+  
+  .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background: #B1BB1E; }
+  
+  .skin-blue .sidebar a {
+    color: white; }
+  
+  .skin-blue .sidebar-menu > li > a:hover, .skin-blue .sidebar-menu > li.active > a {
+    color: white;
+    background: #737D0D;
+    border-left-color: #505709; }
+  
+  .skin-blue .main-header .logo:hover {
+    border-left-color: #505709; }
+  
+  .skin-blue .main-header .logo:hover {
+    background: white url("/images/logoBibus.jpg") no-repeat center center !important;
+    background-size: 20% auto !important; }
+  
+  .btn-primary {
+    background-color: #B1BB1E;
+    border-color: #737D0D;
+    color: #222; }
+  
+  .btn-primary:hover, .btn-primary:active, .btn-primary.hover {
+    background: #737D0D; }
+  
+  .skin-blue .main-header a.logo {
+    font-size: 0;
+    background: white url("/images/logoBibus.jpg") no-repeat center center !important;
+    background-size: 20% auto !important;
+    height: 70px; }
+  
+  .skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background: #505709; }
+  
+  .main-header .sidebar-toggle {
+    padding: 25px 20px; }
+  
+  .skin-blue .main-header li.user-header {
+    background: #B1BB1E;
+    color: #222; }
+  
+  .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
+    color: white; }
+  
+  .form-control {
+    border-color: #737D0D; }
+  
+  .login-box-body, .register-box-body {
+    border: 1px dotted #737D0D; }
+  
+  .login-page, .register-page {
+    background: #FFFFFF; }
+  
+  .login-logo {
+    width: 360px;
+    margin: auto;
+    max-width: 100%;
+    position: relative; }
+    .login-logo img {
+      max-width: 100%; }
+    .login-logo #welcome-block {
+      color: #737D0D;
+      font-size: 0.5em;
+      font-style: italic;
+      margin: 0 20px 30px 20px;
+      position: relative; }
+      .login-logo #welcome-block strong {
+        font-size: 1.3em; }
+      .login-logo #welcome-block span {
+        font-weight: bold; }
+    .login-logo:after {
+      content: '';
+      width: 100px;
+      height: 30px;
+      background: url("/build/trambus.png") no-repeat top center;
+      position: absolute;
+      top: 74px;
+      right: 4px;
+      background-size: 100px 30px; }
+  
+  .sidebar-menu > li > a > .fa, .sidebar-menu > li > a > .glyphicon, .sidebar-menu > li > a > .ion {
+    display: none; }
+  
+  .skin-blue .sidebar-menu > li > a {
+    padding-left: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em; }
+  
+  .main-sidebar, .left-side {
+    padding-top: 110px; }
+  
+  .main-header {
+    max-height: none; }
+  
+  .info-box a {
+    text-align: center; }
+  
+  @media (min-width: 768px) {
+    .navbar-nav > li > a {
+      padding-top: 25px;
+      padding-bottom: 25px; } }
+  .only-xs {
+    display: none; }
+  
+  @media (max-width: 767px) {
+    .hide-xs {
+      display: none; }
+  
+    .only-xs {
+      display: initial; }
+  
+    .skin-blue .main-header a.logo {
+      display: none; }
+  
+    .info-box-content {
+      font-size: 0.8em; }
+  
+    .info-box-icon {
+      font-size: 30px; }
+  
+    .content-header > h1:before {
+      content: '';
+      width: 100px;
+      height: 28px;
+      background: url("/images/logoBibus.jpg") no-repeat top left;
+      background-size: 100px 28px;
+      display: block;
+      float: right; } }
+  @media (max-width: 991px) {
+    .navbar-custom-menu .navbar-nav > li > a {
+      padding-top: 25px;
+      padding-bottom: 25px; } }
+  .info-box {
+    color: white; }
+  
+  #btn-lignes {
+    background: #ED008C; }
+    #btn-lignes .info-box-icon {
+      background: #93268F; }
+  
+  #btn-deviations {
+    background: #00ADEF; }
+    #btn-deviations .info-box-icon {
+      background: #25408F; }
+  
+  #btn-navettes {
+    background: #B1BB1E; }
+    #btn-navettes .info-box-icon {
+      background: #737D0D; }
+  
+  #btn-echo {
+    background: #E97425; }
+    #btn-echo .info-box-icon {
+      background: #893A02; }
+  
+  #btn-aide {
+    background: #93268F; }
+    #btn-aide .info-box-icon {
+      background: #ED008C; }
+  
+  #btn-informations {
+    background: #25408F; }
+    #btn-informations .info-box-icon {
+      background: #00ADEF; }
+  
+  .main-header {
+    position: relative; }
+    .main-header .sidebar-toggle + img {
+      max-width: 50%;
+      height: auto; }
+    .main-header #text-header {
+      font-size: 1.8em;
+      font-style: italic;
+      margin-left: 40px;
+      line-height: 70px;
+      height: 70px;
+      overflow: hidden;
+      position: absolute;
+      color: #FFF; }
+      @media (max-width: 900px) {
+        .main-header #text-header {
+          position: absolute;
+          font-size: 1.2em;
+          width: 120px;
+          overflow: visible;
+          line-height: 17px;
+          left: 176px;
+          top: 0;
+          font-weight: bold;
+          background: #B1BB1E;
+          padding-top: 14px; }
+          .main-header #text-header:after {
+            content: '';
+            background: #B1BB1E;
+            width: 15px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            left: -15px;
+            bottom: 0; } }
+    .main-header:after {
+      content: '';
+      width: 200px;
+      height: 58px;
+      background: url("/build/trambus.png") no-repeat top center;
+      position: absolute;
+      top: 31px;
+      left: 820px;
+      background-size: 200px 58px;
+      z-index: 1005; }
+      @media (max-width: 1200px) {
+        .main-header:after {
+          display: none; } }

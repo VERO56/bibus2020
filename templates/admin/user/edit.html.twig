@@ -1,0 +1,15 @@
+{% extends 'base_admin.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Modifier un utilisateur
+{% endblock %}
+
+{% block main %}
+	<h1>Modifier l'utilisateur "{{ user.username }}"</h1>
+
+	{{ include('admin/user/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+	<div class="row">
+		<a href="{{ path('user_index') }}" class="btn btn-sm btn-secondary">Retour à la liste</a>
+
+		{{ include('admin/user/_delete_form.html.twig') }}
+	</div>
+{% endblock %}

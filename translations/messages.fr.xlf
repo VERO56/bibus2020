@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>navettes</source>
+                <target>Cartons et navettes</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Username</source>
+                <target>Nom d'utilisateur</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Password</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Password (again)</source>
+                <target>Mot de passe (validation)</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Profile</source>
+                <target>Mon compte</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Sign out</source>
+                <target>Se déconnecter</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Submit</source>
+                <target>Enregistrer</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Home</source>
+                <target>Accueil</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Member since %date%</source>
+                <target>Membre depuis %date%</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>User</source>
+                <target>Utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>admin</source>
+                <target>Administration</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>First</source>
+                <target>Mot de passe</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Second</source>
+                <target>Mot de passe (répétez)</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Contact Mail</source>
+                <target>Email de contact</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>User List</source>
+                <target>Liste des utilisateurs</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Body</source>
+                <target>Message</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Send</source>
+                <target>Envoyer</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Last Login</source>
+                <target>Dernière connexion</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Action</source>
+                <target>Action</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>contient</source>
+                <target>contient</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>ne contient pas</source>
+                <target>ne contient pas</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>est égal à</source>
+                <target>est égal à</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Enabled</source>
+                <target>Actif</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>label_type_yes</source>
+                <target>Oui</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>label_type_no</source>
+                <target>Non</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Csvfile</source>
+                <target>Fichier CSV</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Import</source>
+                <target>Importer</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>informations</source>
+                <target>Actus</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>plans-de-lignes</source>
+                <target>Plans de lignes</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>plans-de-deviations</source>
+                <target>Deviations</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>horaires-navettes</source>
+                <target>Navettes</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>Echo form link</source>
+                <target>Lien vers formulaire ECHO</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>Save config</source>
+                <target>Sauvegarder la configuration</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>les navettes</source>
+                <target>Navettes</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

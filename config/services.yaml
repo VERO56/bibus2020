@@ -1,0 +1,71 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+    documents_directory: documents
+    horaires_dir: navettes
+    lignes_dir: plans-de-lignes
+    deviation_dir: deviations
+    information_dir: communication
+    frequence_web_contact.type.class: Oziolab\Bundle\BibusBundle\Form\Type\ContactType
+    from_mail: no-reply@bibus.fr
+    upload_dir: "%kernel.root_dir%/../public/uploads/"
+    pictures_directory: '%kernel.project_dir%/public/uploads/pictures'
+   # echo_form_link: "http://goo.gl/forms/QVuP53sbf9"
+services:
+    # default configuration for services in *this* file
+    _defaults:
+       autowire: true     # Automatically injects dependencies in your services.
+       autoconfigure: true # Automatically registers your services as commands, event subscribers, etc. 
+   
+       bind:
+        $horaires_dir: '%horaires_dir%'
+        $lignes_dir: '%lignes_dir%'
+        $deviation_dir: '%deviation_dir%'
+        $information_dir: '%information_dir%'
+        $documents_directory: '%documents_directory%'
+        $projectDir: '%kernel.project_dir%'
+        $applicationDirectory: ''
+        $rootDirectory: '../%documents_directory%'
+        $entityManager: '@doctrine.orm.entity_manager'
+        $passwordEncoder: '@security.password_encoder'
+       #$echo_form_link: '%echo_form_link%'
+    directory_viewer:
+        class: App\Service\DirectoryViewer
+        arguments: ["%kernel.root_dir%/../", "%documents_directory%"]
+     
+    app.login_listener:
+        class: App\EventListener\LoginListener
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
+
+    app.force_change_password_listener:
+        class: App\EventListener\ForceChangePasswordListener
+      
+
+    app.csv_import:
+        class: App\Service\CsvImport
+        calls:
+            - [setUploadDir, ["%upload_dir%"]]
+        public: true
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller/'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
