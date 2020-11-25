@@ -114,7 +114,7 @@ class CsvImport
         $user->setPassword($encoded);
         $user->setEmail($data[2]);
         $user->setIsActive(true);
-
+        $user->setPasswordChangedAt(new \DateTime());
      
         $this->em->persist($user);
         

@@ -44,7 +44,9 @@ services:
 
     app.force_change_password_listener:
         class: App\EventListener\ForceChangePasswordListener
-      
+        arguments: ['@router', '@security.helper', '@session']
+        tags:
+          - { name: 'kernel.event_listener', event: 'kernel.request', method: 'onPasswordExpired' }
 
     app.csv_import:
         class: App\Service\CsvImport

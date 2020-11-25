@@ -21,35 +21,35 @@ class ForceChangePasswordListener
         $this->security = $security;
         $this->router 		= $router;
         $this->session 		= $session;
-        
     }
-    
+
     public function onPasswordExpired(RequestEvent $event)
     {
 
         if ( ($this->security->getToken() ) && ( $this->security->isGranted('IS_AUTHENTICATED_FULLY') ) ) {
-            
-            $route_name = $event->getRequest()->get('_route');
-            
-            if ($route_name != 'force_change_password') {
 
-                $password_validity_days     = 90;
-                
+            $route_name = $event->getRequest()->get('_route');
+
+            if ($route_name!=null && $route_name != 'app_change_password') {
+
+                $password_validity_days     = 180;
+
                 $today                  = new \DateTime();
-                $days_since_last_change = $this->security->getToken()->getUser()->getPasswordChangedAt()->diff($today);
+                $user = $this->security->getToken()->getUser();
+                $days_since_last_change = $user->getPasswordChangedAt()->diff($today);
 
                 if ($days_since_last_change->format('%a') >  $password_validity_days ) {
 
-                    $response = new RedirectResponse($this->router->generate('force_change_password'));
-                    $this->session->setFlash('error', "Votre mot de passe a expiré. Merci de le changer");
-                    $event->setResponse($response);                
+                    $this->session->getFlashBag()->add('error', "Votre mot de passe a expiré. Merci de le changer");
+                    $response = new RedirectResponse($this->router->generate('app_change_password', ['id'=>$user->getId()]));
+                    $event->setResponse($response);
 
                 }
-                
-            }
-            
-        }
 
+            }
+
+        }
+        return;
     }
     
 }

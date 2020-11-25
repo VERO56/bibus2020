@@ -26,50 +26,32 @@ class ForceChangePasswordController extends AbstractController
      */
     public function ForceChangePasswordAction(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder)
     {
-       // $user =$this->getUser();
-        //$user = new User();
         $form = $this->createForm(ForceChangePasswordFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-           /* try {
-                $user = $this->getDoctrine()->getRepository(User::class)->find($identifier);
-            } catch (ExceptionInterface $e) {
-                $this->addFlash('danger', "Ce matricule n'existe pas.");
-            }*/
+            if(!$passwordEncoder->isPasswordValid($user, $form->get('newpassword')->getData())) {
 
-            //Recuperer le nouveau mot de passe tapé par l'utilisateur
-            //$newpassword = $passwordEncoder->encodePassword($user, $user->getNewpassword());
-            
-            
-           /* $newpassword = $passwordEncoder->encodePassword(
-                $user,
-                $form->get('newpassword')->getData()
-            );*/
-        
-
-            //$user->setPassword($newpassword);
-            //$user->setNewpassword($newpassword);
-            
-            //recuperer l'ancien mot de passe dans la base de donnéees
-           // $oldpassword = $user->getPassword();
-          
                 $newpassword = $passwordEncoder->encodePassword(
                     $user,
                     $form->get('newpassword')->getData()
                 );
                 $user->setPassword($newpassword);
-            
+                $user->setPasswordChangedAt(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
 
-            $this->addFlash('success', 'Le mot de passe est bien changé');
-        
-            # Redirection sur la page de connexion
-            return $this->redirectToRoute('app_logout');
+                $this->addFlash('success', 'Le mot de passe est bien changé');
+
+                # Redirection sur la page de connexion
+                return $this->redirectToRoute('app_logout');
+            }
+            else {
+                $this->addFlash('warning', 'Le nouveau mot de passe ne doit pas être identique au précédent');
+                return $this->redirectToRoute('app_change_password', ["id"=>$user->getId()]);
+            }
         }
         return $this->render(
             'change_password/change_password.html.twig',

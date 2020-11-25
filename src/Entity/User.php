@@ -88,6 +88,11 @@ class User implements UserInterface
      */
     private $newpassword;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $passwordChangedAt;
+
     public function __construct()
     {
         $this->createAt = new \DateTime();
@@ -251,6 +256,18 @@ class User implements UserInterface
     public function setNewpassword(?string $newpassword): self
     {
         $this->newpassword = $newpassword;
+
+        return $this;
+    }
+
+    public function getPasswordChangedAt(): ?\DateTimeInterface
+    {
+        return $this->passwordChangedAt;
+    }
+
+    public function setPasswordChangedAt(?\DateTimeInterface $passwordChangedAt): self
+    {
+        $this->passwordChangedAt = $passwordChangedAt;
 
         return $this;
     }
